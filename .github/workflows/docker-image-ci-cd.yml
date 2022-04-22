@@ -30,6 +30,15 @@ jobs:
       env: 
         DOCKER_SERVER_PORT: ${DOCKER_CONTAINER_PORT}
         DOCKER_SERVER_IP: ${{ secrets.DOCKER_IP }}
+        EUREKA_HOSTNAME: ${{ secrets.EUREKA_IP }}
+        EUREKA_PORT: ${{ secrets.EUREKA_PORT }}
+        MQ_HOSTNAME: ${{ secrets.MQ_IP }}
+        MQ_PORT: ${{ secrets.MQ_PORT }}
+        MQ_USERNAME: ${{ secrets.MQ_USERNAME }}
+        MQ_PASSWORD: ${{ secrets.MQ_PASSWORD }}
+        GIT_REPO_URL: ${{ secrets.CONFIG_REPO_URL }}
+        GIT_ID: ${{ secrets.CONFIG_GIT_ID }}
+        GIT_PERSONAL_ACCESS_TOKEN: ${{ secrets.CONFIG_GIT_TOKEN }}
     # build
     - name: build with gradle
       run: ./gradlew build -x test

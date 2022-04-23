@@ -30,3 +30,8 @@ spring:
           password: ${GIT_PERSONAL_ACCESS_TOKEN}
     bus:
       enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

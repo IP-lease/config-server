@@ -11,6 +11,11 @@ eureka:
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${EUREKA_PORT}/eureka/
 spring:
+  security:
+    user:
+      name: ${ADMIN_USERNAME}
+      password: ${ADMIN_PASSWORD}
+      roles: [ ADMIN ]
   rabbitmq:
     host: ${MQ_HOSTNAME}
     port: ${MQ_PORT}

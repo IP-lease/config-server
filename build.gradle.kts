@@ -32,6 +32,7 @@ dependencies {
     implementation ("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
     implementation ("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
     implementation ("org.springframework.boot:spring-boot-starter-actuator")
+    implementation ("org.springframework.boot:spring-boot-starter-security")
     kapt("org.springframework.boot:spring-boot-configuration-processor")
 }
 
@@ -54,4 +55,8 @@ tasks.withType<Test> {
 
 tasks.getByName<Jar>("jar") {
     enabled = false
+}
+
+springBoot {
+    buildInfo()
 }

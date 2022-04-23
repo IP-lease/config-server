@@ -5,6 +5,7 @@ plugins {
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
+    kotlin("kapt") version "1.6.0"
 }
 
 group = "com.iplease"
@@ -30,6 +31,9 @@ dependencies {
     implementation ("org.springframework.cloud:spring-cloud-config-monitor")
     implementation ("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
     implementation ("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+    implementation ("org.springframework.boot:spring-boot-starter-actuator")
+    implementation ("org.springframework.boot:spring-boot-starter-security")
+    kapt("org.springframework.boot:spring-boot-configuration-processor")
 }
 
 dependencyManagement {
@@ -51,4 +55,8 @@ tasks.withType<Test> {
 
 tasks.getByName<Jar>("jar") {
     enabled = false
+}
+
+springBoot {
+    buildInfo()
 }
